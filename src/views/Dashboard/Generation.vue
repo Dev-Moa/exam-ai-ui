@@ -187,9 +187,6 @@ const handleSubmit = async () => {
             </div>
         </form>
         <!-- End Form -->
-        <div v-if="loading" class="animate-spin inline-block size-8 border-[3px] border-current border-t-transparent text-blue-600 rounded-full dark:text-blue-500"
-            role="status" aria-label="loading">
-            <span class="sr-only">Loading...</span>
-        </div>
+        <p v-if="loading"> loading ... </p>
     </div>
 </template>
