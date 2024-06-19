@@ -1,3 +1,71 @@
+<script setup>
+import Navbar from '@/components/Navbar.vue';
+import Bg from '@/components/Bg.vue';
+import Footer from '@/components/Footer.vue';
+// import { useFetch } from '@/composables/useFetch.js';
+import { useFetch } from '@vueuse/core';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { useToast } from "vue-toastification";
+
+const toast = useToast()
+const router = useRouter();
+
+const formData = ref({
+    username: '',
+    email: '',
+    password: ''
+})
+
+const passwordError = ref('');
+
+// Password validation function
+const validatePassword = () => {
+    const password = formData.value.password;
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!regex.test(password)) {
+        passwordError.value = 'Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, a number, and a special character.';
+    } else {
+        passwordError.value = '';
+    }
+}
+
+// http varriables
+const responseData = ref(null);
+const loading = ref(false);
+const error = ref(null);
+const status = ref(null)
+const url = "https://exam-ai-api.up.railway.app/auth/users/"
+
+const handleSubmit = async () => {
+    validatePassword();
+    if (passwordError.value) {
+        return;
+    }
+    loading.value = true
+    try {
+        const { isFetching, data, error,statusCode } = await useFetch(url).post(formData.value).json()
+        
+        if(error.value){
+            toast.error(`Failed ${error}`)
+        }else {
+            toast.success('Signup Success ')
+            loading.value = isFetching
+            responseData.value = data
+            error.value = error
+            status.value = statusCode
+            router.push({name:'login'})
+        }
+
+    } catch (err) {
+        error.value = err.message;
+        toast.error(`Failed ${error}`)
+    } finally {
+        loading.value = false;
+    }
+}
+</script>
+
 <template>
     <div class="max-w-[75rem] flex flex-col mx-auto size-full">
         <!-- ========== HEADER ========== -->
@@ -102,67 +170,3 @@
     </div>
 </template>
 
-<script setup>
-import Navbar from '@/components/Navbar.vue';
-import Bg from '@/components/Bg.vue';
-import Footer from '@/components/Footer.vue';
-// import { useFetch } from '@/composables/useFetch.js';
-import { useFetch } from '@vueuse/core';
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
-
-const formData = ref({
-    username: '',
-    email: '',
-    password: ''
-})
-
-const passwordError = ref('');
-
-// Password validation function
-const validatePassword = () => {
-    const password = formData.value.password;
-    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    if (!regex.test(password)) {
-        passwordError.value = 'Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, a number, and a special character.';
-    } else {
-        passwordError.value = '';
-    }
-}
-
-// http varriables
-const responseData = ref(null);
-const loading = ref(false);
-const error = ref(null);
-const status = ref(null)
-const url = " http://127.0.0.1:8000/auth/users/"
-
-const handleSubmit = async () => {
-    validatePassword();
-    if (passwordError.value) {
-        return;
-    }
-    loading.value = true
-    try {
-        const { isFetching, data, error,statusCode } = await useFetch(url).post(formData.value).json()
-        loading.value = isFetching
-        responseData.value = data
-        error.value = error
-        status.value = statusCode
-        console.log(data);
-        // add user info to the store
-        
-        // redirect to login page
-        router.push({name:'login'})
-
-        
-
-    } catch (err) {
-        error.value = err.message;
-    } finally {
-        loading.value = false;
-    }
-}
-</script>

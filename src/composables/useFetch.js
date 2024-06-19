@@ -1,6 +1,6 @@
 import { createFetch } from '@vueuse/core';
 
-const baseURL = 'http://127.0.0.1:8000/';
+const baseURL = 'https://exam-ai-api.up.railway.app/';
 
 const useFetch = createFetch({
   baseUrl: baseURL,

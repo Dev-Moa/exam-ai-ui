@@ -32,7 +32,7 @@ const status = ref(null);
 const handleSubmit = async () => {
   loading.value = true;
   try {
-    const { data, error: fetchError, statusCode } = await useFetch(' http://127.0.0.1:8000/auth/token/login/')
+    const { data, error: fetchError, statusCode } = await useFetch('https://exam-ai-api.up.railway.app/auth/token/login/')
       .post(formData.value)
       .json();
 
@@ -40,10 +40,6 @@ const handleSubmit = async () => {
     responseData.value = data.value;
     error.value = fetchError;
     status.value = statusCode.value;
-
-    // console.log('Status Code:', statusCode.value);
-    // console.log('Data:', data.value);
-    // console.log('Error:', fetchError);
 
     if (!fetchError.value) {
       // Accessing the auth token
