@@ -1,0 +1,27 @@
+=========Exam-ai Ui =================
+
+- SETUP PROJECT
+  DONE- install npx @selemondev/create-vue3-app@latest
+  DONE- setup project
+  DONE- Hello world component
+  DONE- install preline ui
+  - re-design Landing page
+
+
+
+- CONNECT TO THE API
+  DONE- auth - signup and signin 
+  DONE- protected pages
+  DONE- admin dashboard
+
+
+- Complete Features
+  DONE- only allow admin user to see user sidebar link
+  DONE- each part question only include number of parts selected
+  DONE- allow user choose how many chapters exam should contain
+  DONE- connect default dashboard links to routes
+  DONE- connect signup route in landing call to action 
+  DONE- get logo
+  DONE- add team pictures
+  - send screenshoots of features to suleyman and also change the screenshoot of the hero
+
