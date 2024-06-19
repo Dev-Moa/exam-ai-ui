@@ -105,7 +105,7 @@ onMounted(async () => {
     <!-- Sidebar -->
     <div :class="{ 'hidden lg:block': !sidebar, 'block': sidebar }"
         class="fixed  top-0 start-0 bottom-0 z-[60] w-64 bg-blue-600 pt-7 pb-10 overflow-y-auto transition-all duration-300 transform lg:translate-x-0">
-       <router-link to="/admin">
+       <router-link :to="{ name: 'admin' }">
         <div class="px-6 flex items-center gap-x-4">
             <Logo2/>
             <a class="flex-none text-xl font-semibold text-white" href="#" aria-label="Brand">Exam ai</a>

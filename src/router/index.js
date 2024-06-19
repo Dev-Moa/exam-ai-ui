@@ -34,6 +34,7 @@ const router = createRouter({
     {
       path: '/admin',
       component: SharedLayout,
+      name:'admin',
       children: [
         { path: '', component: Dashboard, name: 'dash' },
         { path: 'generation', component: Generation, name: 'gen' },
