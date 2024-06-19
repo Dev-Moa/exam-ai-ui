@@ -44,7 +44,7 @@ const teamMembers = [
   
   {
     id: 3,
-    name: 'Mohamed Suleyman',
+    name: 'Mohamed Suleyman Mohamed',
     role: 'Backend Developer',
     description: 'implemented the server-side logic and managed database interactions, ensuring a robust backend',
     image: suleymaan
