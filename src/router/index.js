@@ -47,7 +47,7 @@ const router = createRouter({
 });
 
 async function fetchUserDetails() {
-  const { data, error } = await useFetch('/auth/users/me').get().json();
+  const { data, error } = await useFetch('auth/users/me').get().json();
   if (error.value) {
     console.error('Failed to fetch user details:', error.value);
     return null;
