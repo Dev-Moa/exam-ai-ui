@@ -31,7 +31,7 @@ const fetchStudentMarks = async () => {
 };
 
 // on mount, fetch student marks
-onMounted(fetchStudentMarks);
+onMounted(await fetchStudentMarks);
 
 // formData
 const formData = ref({
