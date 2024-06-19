@@ -42,7 +42,7 @@ const responseData = ref(null);
 const loading = ref(false);
 const error = ref(null);
 const status = ref(null);
-const url = "http://127.0.0.1:8000/generate/";
+const url = "https://exam-ai-api.up.railway.app/generate/";
 
 const handleSubmit = async () => {
     loading.value = true;
