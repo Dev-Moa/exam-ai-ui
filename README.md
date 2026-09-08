@@ -1,29 +1,27 @@
-# vue-js
+# Exam AI — Frontend
 
-This template should help get you started developing with Vue 3 in Vite.
+Frontend for the Exam AI platform — an AI-powered exam review experience.
 
-## Recommended IDE Setup
+## Features
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- 🔐 Authentication — sign up / sign in with protected routes
+- 📊 Dashboard — review your exam results and per-question feedback
+- 🏠 Landing page
 
-## Customize configuration
+## Tech stack
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- **Vue 3** (Composition API) + **Vite**
+- **Pinia** + **Vue Router**
+- **Tailwind CSS 3** + **Preline UI**
+- Deployed on **Railway** (Nixpacks + Caddy)
 
-## Project Setup
+## Backend
 
-```sh
+See [exam-ai-app](https://github.com/Dev-Moa/exam-ai-app) — Django 4.2 + DRF.
+
+## Local setup
+
+```bash
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
 ```
