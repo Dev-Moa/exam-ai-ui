@@ -1,6 +1,6 @@
-# Exam AI — Frontend
+# Exam AI: Frontend
 
-Frontend for the Exam AI platform — an AI-powered exam review experience.
+Frontend for the Exam AI platform, an AI-powered exam review experience.
 
 ## Background
 
