@@ -2,6 +2,10 @@
 
 Frontend for the Exam AI platform — an AI-powered exam review experience.
 
+## Background
+
+The frontend half of my **final-year graduation project** for my B.Sc. in Computer Applications at Jamhuriya University of Science and Technology (graduated December 2024).
+
 ## Features
 
 - 🔐 Authentication — sign up / sign in with protected routes
